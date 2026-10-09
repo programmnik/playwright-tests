@@ -1,0 +1,2 @@
+[   29425ms] [ERROR] Access to fetch at 'https://automation.tivaliclub.com/ru/contactus' from origin 'null' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ about:blank:0
+[   29426ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://automation.tivaliclub.com/ru/contactus:0

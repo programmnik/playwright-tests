@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Test group', () => {
-  test('seed', async ({ page }) => {
-    // generate code here.
+test('seed', async ({ page }) => {
+  await page.goto('https://automation.tivaliclub.com/ru/contactus', {
+    waitUntil: 'domcontentloaded',
   });
+
+  // Ждём, что страница реально загрузилась — по заголовку или по форме
+  await expect(page).toHaveURL(/contactus/);
 });

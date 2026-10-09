@@ -1,0 +1,26 @@
+{
+  "valid": {
+    "email": "test.user@example.com",
+    "subject": "Вопрос по подписке",
+    "message": "Здравствуйте, интересует возможность участия в клубе и стоимость участия."
+  },
+  "invalidEmails": [
+    "test@example",
+    "test@@example.com"
+  ],
+  "whitespace": {
+    "email": "   ",
+    "subject": "   ",
+    "message": "   "
+  },
+  "longText": {
+    "email": "test.user@example.com",
+    "subject": "Вопрос с длинным сообщением",
+    "message": "Это длинное сообщение для проверки граничного значения. "
+  },
+  "specialCharacters": {
+    "email": "user.name+tag@sub.domain.co.uk",
+    "subject": "Вопрос \"по оплате\" — 2026/07/15 №42",
+    "message": "Привет!\n!@#$%^&*()_+[]{};:,./<>?~` — Русский, English, emoji 😀"
+  }
+}
