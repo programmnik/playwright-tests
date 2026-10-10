@@ -9,10 +9,11 @@ export class ContactPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.emailInput = page.getByLabel(/Email/i);
-    this.subjectInput = page.getByLabel(/Тема обращения/i);
-    this.messageInput = page.getByLabel(/Сообщение/i);
-    this.submitButton = page.getByRole('button', { name: /Отправить/i });
+    const form = page.locator('form');
+    this.emailInput = form.getByLabel(/Email/i);
+    this.subjectInput = form.getByLabel(/Тема обращения/i);
+    this.messageInput = form.locator('textarea').first();
+    this.submitButton = form.getByRole('button', { name: /Отправить/i });
   }
 
   async goto() {
@@ -24,10 +25,16 @@ export class ContactPage {
     await expect(this.submitButton).toBeVisible();
   }
 
+  async typeInto(locator: Locator, value: string) {
+    await locator.click();
+    await locator.fill(value);
+    await expect(locator).toHaveValue(value);
+  }
+
   async fillForm(form: { email: string; subject: string; message: string }) {
-    await this.emailInput.fill(form.email);
-    await this.subjectInput.fill(form.subject);
-    await this.messageInput.fill(form.message);
+    await this.typeInto(this.emailInput, form.email);
+    await this.typeInto(this.subjectInput, form.subject);
+    await this.typeInto(this.messageInput, form.message);
   }
 
   async expectValidationError(
